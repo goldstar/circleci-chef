@@ -41,7 +41,6 @@ Downloads the specified CircleCI build artifact.
 ### Actions
 
 - `download` - Download a CircleCI build artifact (default)
-- `delete` - Deletes the specified CircleCI artifact locally
 
 ### Properties:
 
