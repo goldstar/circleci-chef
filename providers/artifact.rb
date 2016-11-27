@@ -11,9 +11,9 @@ attribute :build_number, :kind_of => Integer, :required => true
 attribute :token, :kind_of => String, :required => true
 attribute :source, :kind_of => String, :required => true
 attribute :path, :kind_of => String, :required => true, :name_attribute => true
-attribute :owner, :kind_of => [String, Integer], :required => false
-attribute :group, :kind_of => [String, Integer], :required => false
-attribute :mode, :kind_of => [String, Integer], :required => false
+attribute :owner, :kind_of => [String, Integer], :required => false, :default => 'root'
+attribute :group, :kind_of => [String, Integer], :required => false, :default =>
+attribute :mode, :kind_of => [String, Integer], :required => false, :default => '0644'
 
 def get_artifacts(token, project, build_number)
   CircleCi.configure do |config|
