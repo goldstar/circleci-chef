@@ -17,4 +17,8 @@
 # limitations under the License.
 #
 
-chef_gem "circleci"
+chef_gem "circleci" do
+  compile_time false if Chef::Resource::ChefGem.method_defined?(:compile_time)
+end
+
+require 'circleci'

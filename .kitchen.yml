@@ -1,6 +1,10 @@
 ---
 driver:
   name: docker
+  use_sudo: false
+
+driver_config:
+  socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
 
 provisioner:
   name: chef_zero
@@ -8,6 +12,15 @@ provisioner:
     - ./test/cookbooks
   attributes:
     test-kitchen: true
+    chef_client:
+      config:
+        log_level: ":debug"
+    circleci:
+      project: "goldstar/elasticsearch-collab"
+      artifact_path: "/tmp/download.zip"
+      build_number: 16
+      source: "build/distributions/elasticsearch-collab.zip"
+      token: <%= ENV['CIRCLECI_API_TOKEN'] || 'secret-token' %>
 
 platforms:
   - name: ubuntu-14.04
@@ -15,4 +28,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[circleci_test::default]
+      - recipe[circleci]
+      - recipe[circleci_test]
