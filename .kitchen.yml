@@ -1,0 +1,18 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+  cookbook_paths:
+    - ./test/cookbooks
+  attributes:
+    test-kitchen: true
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[circleci_test::default]

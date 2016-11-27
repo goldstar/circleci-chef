@@ -75,6 +75,8 @@ GEM
     highline (1.7.8)
     iniparse (1.4.2)
     ipaddress (0.8.3)
+    kitchen-docker (2.6.0)
+      test-kitchen (>= 1.0.0)
     libyajl2 (1.2.0)
     mini_portile2 (2.1.0)
     mixlib-archive (0.2.0)
@@ -179,6 +181,7 @@ DEPENDENCIES
   chefspec!
   circleci!
   foodcritic!
+  kitchen-docker!
   rake!
   test-kitchen!
   thor (= 0.19.1)!
