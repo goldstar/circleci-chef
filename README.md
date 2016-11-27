@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/goldstar/circleci-chef/tree/master.svg?style=svg)](https://circleci.com/gh/goldstar/circleci-chef/tree/master)
+
 # `circleci`
 
 A set of Chef LWRPs for interfacing with CircleCI.
