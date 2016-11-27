@@ -81,17 +81,3 @@ action :download do
     @new_resource.updated_by_last_action(f.updated_by_last_action?)
   end
 end
-
-action :delete do
-  if @current_resource.exists 
-    converge_by("Deleting artifact #{@current_resource.path}") do
-      f = file @current_resource.path do
-        action :delete
-      end
-      Chef::Log.info "#{@current_resource.path} deleted."
-      @new_resource.updated_by_last_action(f.updated_by_last_action?)
-    end
-  else
-    Chef::Log.error "#{@current_resource.path} does not exist."
-  end
-end

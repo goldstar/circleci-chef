@@ -52,9 +52,7 @@ Downloads the specified CircleCI build artifact.
 - `group` - Which group will own the downloaded artifact. Defaults to `root`.
 - `mode` - The mode of the downloaded artifact. Defaults to `0644`.
 
-### Examples:
-
-#### Download an artifact from CircleCI
+### Example:
 
 ```ruby
 build_number = node['myapp']['build_number']
