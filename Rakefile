@@ -1,4 +1,5 @@
 require 'foodcritic'
+require 'kitchen'
 
 task :default => [:foodcritic]
 
