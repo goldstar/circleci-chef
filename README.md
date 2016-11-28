@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/goldstar/circleci-chef/tree/master.svg?style=svg)](https://circleci.com/gh/goldstar/circleci-chef/tree/master)
+[![Dependency Status](https://gemnasium.com/badges/github.com/goldstar/circleci-chef.svg)](https://gemnasium.com/github.com/goldstar/circleci-chef)
 
 # `circleci`
 
