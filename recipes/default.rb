@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-chef_gem "circleci" do
+chef_gem 'circleci' do
   compile_time true
 end
 

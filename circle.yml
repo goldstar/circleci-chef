@@ -5,5 +5,5 @@ machine:
     version: 2.2.4
 test:
   override:
-    - bundle exec rake
+    - bundle exec rake style
     - bundle exec kitchen test

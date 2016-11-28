@@ -1,4 +1,5 @@
 source 'https://rubygems.org' do
+  gem 'rubocop'
   gem 'berkshelf'
   gem 'rake'
   gem 'thor', '0.19.1'

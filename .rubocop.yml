@@ -1,0 +1,14 @@
+Style/SpaceBeforeFirstArg:
+  Enabled: false
+
+AllCops:
+  # Include common Ruby source files.
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Berksfile'
+    - '**/metadata.rb'
+    - '**/providers/**/*.rb'
+    - '**/libraries/**/*.rb'
+    - '**/recipes/**/*.rb'
+    - '**/attributes/**/*.rb'
