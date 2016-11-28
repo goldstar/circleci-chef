@@ -6,4 +6,4 @@ machine:
 test:
   override:
     - bundle exec rake style
-    - bundle exec kitchen test
+    - bundle exec rake integration:kitchen:all

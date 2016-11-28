@@ -28,21 +28,18 @@ def get_artifact_to_download(build_artifacts, source)
     artifact_to_download = artifact if artifact['pretty_path'].end_with? source
     break unless artifact_to_download.nil?
   end
-end
 
-load_current_value do
-  artifact_exists = ::File.file?(path)
-  artifact_exists
+  return artifact_to_download
 end
 
 action :download do
-  converge_if_changed do
+  unless ::File.file?(path)
     build_artifacts = get_artifacts(token, project, build_number)
     artifact_to_download = get_artifact_to_download(build_artifacts, source)
 
-    if artifact_exists || artifact_to_download.nil?
+    if artifact_to_download.nil?
       Chef::Log.error "No artifact found for #{source}!"
-      return # Nothing left to do here.
+      return  # Nothing left to do here.
     end
 
     url_of_artifact = "#{artifact_to_download['url']}?circle-token=#{token}"
