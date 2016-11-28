@@ -29,7 +29,7 @@ def get_artifact_to_download(build_artifacts, source)
     break unless artifact_to_download.nil?
   end
 
-  return artifact_to_download
+  artifact_to_download
 end
 
 action :download do
@@ -39,7 +39,7 @@ action :download do
 
     if artifact_to_download.nil?
       Chef::Log.error "No artifact found for #{source}!"
-      return  # Nothing left to do here.
+      return # Nothing left to do here.
     end
 
     url_of_artifact = "#{artifact_to_download['url']}?circle-token=#{token}"
