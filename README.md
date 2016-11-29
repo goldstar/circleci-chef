@@ -48,7 +48,7 @@ Downloads the specified CircleCI build artifact.
 - `project` - The CircleCI project path. (e.g. `goldstar/circleci-chef`)
 - `build_number` - The build number to download the artifact from.
 - `token` - A valid CircleCI API token.
-- `source` - The artifact name. Can be any part of the suffic of the artifact path. (e.g. `build/out.tar.gz`)
+- `source` - The artifact name. Can be any part of the suffix of the artifact path. (e.g. `build/out.tar.gz` will match `home/ubuntu/build/out.tar.gz`)
 - `path` - The local path to save the artifact to. Defaults to the resource name.
 - `owner` - Who will own the downloaded artifact. Defaults to `root`.
 - `group` - Which group will own the downloaded artifact. Defaults to `root`.
@@ -59,8 +59,10 @@ Downloads the specified CircleCI build artifact.
 ```ruby
 build_number = node['myapp']['build_number']
 circleci_artifact "/usr/local/builds/#{build_number}.zip" do
-  token node['myapp]['circlci_api_token'] 
-  source "build/output.zip"
-  action :download
+  project 'goldstar/myapp'
+  build_number build_number
+  source 'build/output.zip'
+  token node['myapp]['circlci_api_token']
+  action :download # This action is the default
 end
 ```
