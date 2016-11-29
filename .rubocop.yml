@@ -4,6 +4,9 @@ Metrics/LineLength:
 Style/SpaceBeforeFirstArg:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 AllCops:
   # Include common Ruby source files.
   Include:
