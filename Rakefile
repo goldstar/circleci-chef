@@ -35,3 +35,6 @@ namespace :integration do
   desc 'Run Kitchen CI tests'
   Kitchen::RakeTasks.new
 end
+
+desc 'Run all ChefSpec and KitchenCI tests'
+task :test => ['spec:chef', 'integration:kitchen:all']
