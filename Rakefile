@@ -21,6 +21,13 @@ namespace :style do
   end
 end
 
+namespace :spec do
+  desc 'Run ChefSpec tests'
+  RSpec::Core::RakeTask.new(:chef) do |t|
+    t.verbose = false
+  end
+end
+
 desc 'Run all style checks'
 task style: ['style:chef', 'style:ruby']
 

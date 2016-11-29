@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe 'circleci'
+
 circleci_artifact node['circleci']['artifact_path'] do
   project node['circleci']['project']
   build_number node['circleci']['build_number']

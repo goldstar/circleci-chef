@@ -1,3 +1,6 @@
+Metrics/LineLength:
+  Max: 100
+
 Style/SpaceBeforeFirstArg:
   Enabled: false
 
@@ -12,3 +15,8 @@ AllCops:
     - '**/libraries/**/*.rb'
     - '**/recipes/**/*.rb'
     - '**/attributes/**/*.rb'
+  Exclude:
+    - '**/spec/**/*.rb'
+
+Documentation:
+  Enabled: false
