@@ -3,6 +3,9 @@ machine:
     - docker
   ruby:
     version: 2.2.4
+dependencies:
+  cache_directories:
+    - /opt/circleci/.rvm/rubies/ruby-2.2.3
 test:
   override:
     - bundle exec rake style
