@@ -17,7 +17,7 @@ AllCops:
     - '**/attributes/**/*.rb'
   Exclude:
     - '**/spec/**/*.rb'
-    - '**/vendor/**/*.rb'
+    - '**/vendor/**/*'
 
 Documentation:
   Enabled: false
