@@ -22,10 +22,8 @@ action :download do
       return # Nothing left to do here.
     end
 
-    puts artifact_to_download
-
-    url_of_artifact = "#{artifact_to_download[:url]}?circle-token=#{token}"
-    Chef::Log.info "Found artifact at #{artifact_to_download[:url]} ..."
+    url_of_artifact = "#{artifact_to_download['url']}?circle-token=#{token}"
+    Chef::Log.info "Found artifact at #{artifact_to_download['url']} ..."
 
     remote_file path do
       source url_of_artifact
