@@ -6,7 +6,7 @@ machine:
 dependencies:
   cache_directories:
     - /opt/circleci/.rvm/rubies/ruby-2.2.3
-    - /opt/circleci/.rvm/gems/ruby-2.2.4
+    - /opt/circleci/.rvm/gems/ruby-2.2.3
 test:
   override:
     - bundle exec rake style

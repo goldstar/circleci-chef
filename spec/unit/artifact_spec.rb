@@ -3,8 +3,7 @@ require_relative '../../libraries/helpers'
 
 describe 'circleci_artifact' do
   let(:chef_run) do
-    Chef::Config[:cookbook_path] << './test/cookbooks'
-    ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04', step_into: ['circleci_artifact']) do |node|
+    ChefSpec::SoloRunner.new(step_into: ['circleci_artifact']) do |node|
       node.override['circleci']['artifact_path'] = '/tmp/download.zip'
       node.override['circleci']['project'] = 'goldstar/test'
       node.override['circleci']['build_number'] = 1
