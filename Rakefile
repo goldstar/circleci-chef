@@ -37,4 +37,4 @@ namespace :integration do
 end
 
 desc 'Run all ChefSpec and KitchenCI tests'
-task :test => ['spec:chef', 'integration:kitchen:all']
+task test: ['spec:chef', 'integration:kitchen:all']
