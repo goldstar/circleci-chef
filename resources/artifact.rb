@@ -17,7 +17,6 @@ action :download do
     artifact_to_download = get_artifact_to_download(build_artifacts,
                                                     source)
 
-
     if artifact_to_download.nil?
       Chef::Log.error "No artifact found for #{source}!"
       return # Nothing left to do here.

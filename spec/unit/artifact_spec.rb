@@ -19,11 +19,18 @@ describe 'circleci_artifact' do
     expect(chef_run).to_not create_remote_file('/tmp/download.zip')
   end
 
+  it 'does nothing if no artficat matching source is found in CircleCI' do
+    allow_any_instance_of(CircleciCookbook::Helpers).to receive(:get_artifacts).and_return([])
+    chef_run.converge('circleci_test::default')
+    
+    expect(chef_run).to_not create_remote_file('/tmp/download.zip')
+  end
+
   it 'will download artifact when found' do
     artifact = {
-        'pretty_path' => '/path/to/build/download.zip',
-        'url' => 'https://example.com/path/to/artifact'
-    }.stringify_keys
+      'pretty_path' => '/path/to/build/download.zip',
+      'url' => 'https://example.com/path/to/artifact'
+    }
 
     allow_any_instance_of(CircleciCookbook::Helpers).to receive(:get_artifacts).and_return([artifact])
     chef_run.converge('circleci_test::default')
