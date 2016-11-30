@@ -68,7 +68,7 @@ circleci_artifact "/usr/local/builds/#{build_number}.zip" do
   project 'goldstar/myapp'
   build_number build_number
   source 'build/output.zip'
-  token node['myapp]['circlci_api_token']
+  token node['myapp']['circlci_api_token']
   action :download # This action is the default
 end
 ```
