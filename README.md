@@ -15,6 +15,9 @@ A set of Chef LWRPs for interfacing with CircleCI.
 
 - Chef 12.0 or later
 
+### Gem
+
+- [CircleCI](https://github.com/mtchavez/circleci)
 
 ## Usage
 
@@ -37,7 +40,7 @@ This recipe installs Gems required by the CircleCI LWRP.
 
 ### `circleci_artifact`
 
-Downloads the specified CircleCI build artifact.
+Downloads the specified CircleCI build artifact to the specified local path. This is a small wrapper around `remote_file` that will search for a given artifact in a given build of a given project. 
 
 ### Actions
 
@@ -57,12 +60,15 @@ Downloads the specified CircleCI build artifact.
 ### Example:
 
 ```ruby
+# Pull a build number in from a role or environment file.
 build_number = node['myapp']['build_number']
+
+# Tell Chef to download the artifact locally.
 circleci_artifact "/usr/local/builds/#{build_number}.zip" do
   project 'goldstar/myapp'
   build_number build_number
   source 'build/output.zip'
-  token node['myapp]['circlci_api_token']
+  token node['myapp']['circlci_api_token']
   action :download # This action is the default
 end
 ```
