@@ -28,11 +28,9 @@ unless defined?(CircleciCookbook)
       end
 
       def chef_proxy
-        begin
-          URI.parse(Chef::Config['https_proxy'])
-        rescue URI::InvalidURIError
-          URI::Generic.new(nil, nil, nil, nil, nil, nil, nil, nil, nil)
-        end
+        URI.parse(Chef::Config['https_proxy'])
+      rescue URI::InvalidURIError
+        URI::Generic.new(nil, nil, nil, nil, nil, nil, nil, nil, nil)
       end
     end
   end
