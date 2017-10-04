@@ -45,13 +45,13 @@ describe 'circleci_artifact' do
     helpers.get_artifacts('fake_token', 'company/project', 123)
 
     expect(CircleCi.config.proxy_host).to eq(nil)
-    expect(CircleCi.config.proxy_port).to eq(80)
+    expect(CircleCi.config.proxy_port).to eq(nil)
     expect(CircleCi.config.proxy).to eq(false)
   end
 
   it 'uses the proxy when chef is proxied' do
     stub_const('Chef::Config', 'https_proxy' => 'http://example.com:1234' )
-    allow(CircleCi::Build).to receive(:artifacts).and_return( double(success?: false) )
+    allow(CircleCi::Build).to receive(:new).and_return( double(artifacts: double(success?: false) ) )
     helpers.get_artifacts('fake_token', 'company/project', 8)
 
     expect(CircleCi.config.proxy_host).to eq('http://example.com')

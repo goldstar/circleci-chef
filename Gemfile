@@ -1,6 +1,6 @@
 source 'https://rubygems.org' do
   gem 'berkshelf', '~>5.2'
-  gem 'circleci', '~>1.0'
+  gem 'circleci', '~>2.0'
   gem 'chefspec', '~>5.3'
   gem 'foodcritic', '~>8.1'
   gem 'kitchen-docker', '~>2.6'

@@ -1,7 +1,7 @@
 unless defined?(CircleciCookbook)
   module CircleciCookbook
     module Helpers
-      def get_artifacts(token, project, build_number)
+      def get_artifacts(token, project, build_number) # rubocop:disable AbcSize, MethodLength
         CircleCi.configure do |config|
           if [chef_proxy.scheme, chef_proxy.host].all?
             config.proxy_host = [chef_proxy.scheme, chef_proxy.host].join('://')
@@ -12,8 +12,7 @@ unless defined?(CircleciCookbook)
         end
 
         username, repo = project.split('/')
-
-        res = CircleCi::Build.artifacts username, repo, build_number
+        res = CircleCi::Build.new(username, repo, nil, build_number).artifacts
         res.success? ? res.body : []
       end
 

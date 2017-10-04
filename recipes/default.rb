@@ -19,6 +19,7 @@
 
 chef_gem 'circleci' do
   compile_time true
+  version '~> 2.0'
 end
 
 require 'circleci'

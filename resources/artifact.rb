@@ -16,7 +16,7 @@ action :download do
     build_artifacts = get_artifacts(new_resource.token, new_resource.project,
                                     new_resource.build_number)
     artifact_to_download = get_artifact_to_download(build_artifacts,
-                                                    source)
+                                                    new_resource.source)
 
     if artifact_to_download.nil?
       Chef::Log.error "No artifact found for #{new_resource.source}!"
