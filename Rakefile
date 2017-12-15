@@ -5,8 +5,8 @@ require 'rubocop/rake_task'
 require 'foodcritic'
 require 'kitchen/rake_tasks'
 
-CLEAN.include %w(.kitchen/ coverage/)
-CLOBBER.include %w(Berksfile.lock Gemfile.lock)
+CLEAN.include %w[.kitchen/ coverage/]
+CLOBBER.include %w[Berksfile.lock Gemfile.lock]
 
 namespace :style do
   desc 'Run Rubocop style checks'
