@@ -2,7 +2,6 @@ require 'foodcritic'
 require 'rake/clean'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
-require 'foodcritic'
 require 'kitchen/rake_tasks'
 
 CLEAN.include %w[.kitchen/ coverage/]
