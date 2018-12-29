@@ -1,4 +1,5 @@
 source 'https://rubygems.org' do
+  gem 'cucumber'
   gem 'berkshelf', '~>5.6'
   gem 'chefspec', '~>7.1'
   gem 'circleci', '~>2.0'
